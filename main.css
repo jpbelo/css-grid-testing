@@ -1,62 +1,71 @@
 @import "reset.css";
 
 #pageWrap {
-	display:grid;
-	grid-template-columns:10% 1fr 1fr 1fr 1fr 10%;
+	display: grid;
+	grid-template-columns: 10% repeat(4, 1fr) 10%;
 	grid-template-areas:
 	". logo . nav nav nav"
-	". header header header header ."
+	". header header nav nav nav"
 	". section section section aside ."
 	"footer footer footer footer footer footer";
-	grid-gap:2%;
+	grid-gap: 2%;
+	grid-auto-rows: minmax(150px, auto);
 }
 
 @media screen and (max-width: 690px){
-	#pageWrap {
-		grid-template-columns:5% 1fr 1fr 5%;
-		grid-template-areas:
-		". header header ."
-		". logo nav ."
-		". section section ."
-		". aside aside ."
-		". footer footer .";
-	}
+		#pageWrap {
+			grid-template-columns: 5% 1fr 1fr 5%;
+			grid-template-areas:
+			". header header ."
+			". logo nav ."
+			". section section ."
+			". aside aside ."
+			". footer footer .";
+		}
 }
 
-#pageWrap header 					{
-	height:200px;
-	background-color:red;
-	grid-area:header;
+
+
+#pageWrap header {
+	background-color: red;
+	grid-area: header;
 }
 
-#pageWrap #logo  					{
-	width:100%;
-	align-self:center;
-	background-color:green;
-	grid-area:logo;
+#pageWrap #logo {
+	width: 100%;
+	align-self: center;
+	background-color: green;
+	grid-area: logo;
 }
 
-#pageWrap nav   					{
-	height:200px;
-	background-color:blue;
-	grid-area:nav;
+#pageWrap nav {
+	background-color: blue;
+	grid-area: nav;
+}
+#pageWrap nav ul {
+	display: grid;
+	grid-template-columns:repeat(4, 1fr);
+	grid-gap:2%;
+	margin:2%;
+}
+#pageWrap nav ul li {
+	border: 1px solid black;
+	grid-column: span 1;
 }
 
-#pageWrap section   			{
-	height:200px;
-	background-color:orange;
-	grid-area:section;
+#pageWrap section {
+	background-color: orange;
+	grid-area: section;
 }
 
-#pageWrap aside   				{
-	align-self:center;
-	padding:40px;
-	background-color:grey;
-	grid-area:aside;
+#pageWrap aside {
+	align-self: center;
+	padding: 40px;
+	background-color: grey;
+	grid-area: aside;
 }
 
-#pageWrap footer   				{
-	height:200px;
-	background-color:yellow;
-	grid-area:footer;
+#pageWrap footer {
+	background-color: yellow;
+	grid-area: footer;
 }
